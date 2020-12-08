@@ -1,11 +1,7 @@
 with open("input.txt", "r") as f:
     rules = [tuple(val.strip().split(" bags contain ")) for val in f.readlines()]
 
-outer_bags = []
-for rule in rules:
-    if "shiny gold" in rule[1]:
-        outer_bags.append(rule[0])
-
+outer_bags = ["shiny gold"]
 while True:
     nbags = len(outer_bags)
     for bag in outer_bags:
@@ -15,4 +11,4 @@ while True:
     if nbags == len(outer_bags):
         break
 
-print(nbags)
+print(nbags-1) # -1 because our list contains 'shiny gold'
